@@ -13,7 +13,7 @@ Simple .net DLL executor, separated to client (endpoint, simple .NET 8.0 program
 The client (endpoint) downloads the DLL module via REST API from the server and runs it locally.
 
 ## Server
-The server connects to the SQL (connection string defined in appsettings.json) database and handles three API requests:
+The server connects to the SQL (connection string defined in appsettings.json) database and handles three API requests:\
 ![Swagger](https://i.imgur.com/BA7QRac.jpeg "Swagger")\
 GET moduleMd5 - retrieves md5 of latest dll module from the sql database\
 GET moduleDll - retrieves dll of selected by md5 module from the sql database\
