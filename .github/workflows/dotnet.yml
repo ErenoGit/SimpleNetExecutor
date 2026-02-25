@@ -20,9 +20,22 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+
+    - name: Restore Client
+      run: dotnet restore SimpleNetExecutor.Client/SimpleNetExecutor.Client.sln
+    - name: Build Client
+      run: dotnet build SimpleNetExecutor.Client/SimpleNetExecutor.Client.sln --no-restore
+    - name: Test Client
+      run: dotnet test SimpleNetExecutor.Client/SimpleNetExecutor.Client.sln --no-build --verbosity normal
+
+    - name: Restore Server
+      run: dotnet restore SimpleNetExecutor.Server/SimpleNetExecutor.Server.sln
+    - name: Build Server
+      run: dotnet build SimpleNetExecutor.Server/SimpleNetExecutor.Server.sln --no-restore
+    - name: Test Server
+      run: dotnet test SimpleNetExecutor.Server/SimpleNetExecutor.Server.sln --no-build --verbosity normal
+
+    - name: Restore ExampleModule
+      run: dotnet restore SimpleNetExecutor.ExampleModule/SimpleNetExecutor.ExampleModule.sln
+    - name: Build ExampleModule
+      run: dotnet build SimpleNetExecutor.ExampleModule/SimpleNetExecutor.ExampleModule.sln --no-restore
